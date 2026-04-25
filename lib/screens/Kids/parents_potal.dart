@@ -49,6 +49,18 @@ class _ParentsPortalState extends State<ParentsPortal> {
                       Row(
                         children: [
                           Container(
+                            width: 33,
+                            height: 33,
+                            child: IconButton(
+                              onPressed: () => Navigator.maybePop(context),
+                              icon: const Icon(Icons.arrow_back),
+                              color: const Color(0xFF705D00),
+                              padding: EdgeInsets.zero,
+                              constraints: const BoxConstraints(),
+                              tooltip: 'Back',
+                            ),),
+                          SizedBox(width: 10,),
+                          Container(
                             width: 44,
                             height: 44,
                             decoration: BoxDecoration(
@@ -200,10 +212,10 @@ class _ParentsPortalState extends State<ParentsPortal> {
           ),
         ),
       ),
-      bottomNavigationBar: CustomBottomNavBar(
-        selectedIndex: _selectedIndex,
-        onItemSelected: _onItemTapped,
-      ),
+      // bottomNavigationBar: CustomBottomNavBar(
+      //   selectedIndex: _selectedIndex,
+      //   onItemSelected: _onItemTapped,
+      // ),
     );
   }
 
@@ -478,7 +490,7 @@ class _ParentsPortalState extends State<ParentsPortal> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(32),
+          padding: const EdgeInsets.all(32),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -727,83 +739,83 @@ class DashedBorderPainter extends CustomPainter {
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
 
-class CustomBottomNavBar extends StatelessWidget {
-  final int selectedIndex;
-  final Function(int) onItemSelected;
-
-  const CustomBottomNavBar({
-    super.key,
-    required this.selectedIndex,
-    required this.onItemSelected,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: Container(
-        height: 80,
-        margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(40),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.08),
-              blurRadius: 20,
-              offset: const Offset(0, 4),
-            ),
-          ],
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            _buildNavItem(0, Icons.auto_awesome_mosaic_outlined, 'LOOM'),
-            _buildNavItem(1, Icons.book_outlined, 'LIBRARY'),
-            _buildNavItem(2, Icons.bar_chart_outlined, 'PROGRESS'),
-            _buildNavItem(3, Icons.person_pin_outlined, 'PORTAL'),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildNavItem(int index, IconData icon, String label) {
-    final bool isSelected = selectedIndex == index;
-    final Color activeColor = const Color(0xFF705D00);
-
-    return InkWell(
-      onTap: () => onItemSelected(index),
-      borderRadius: BorderRadius.circular(40),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            AnimatedContainer(
-              duration: const Duration(milliseconds: 200),
-              padding: EdgeInsets.all(isSelected ? 8 : 0),
-              decoration: BoxDecoration(
-                color: isSelected ? activeColor : Colors.transparent,
-                shape: BoxShape.circle,
-              ),
-              child: Icon(
-                icon,
-                color: isSelected ? Colors.white : Colors.grey,
-                size: 24,
-              ),
-            ),
-            const SizedBox(height: 4),
-            Text(
-              label,
-              style: GoogleFonts.plusJakartaSans(
-                fontSize: 8,
-                fontWeight: FontWeight.w900,
-                color: isSelected ? activeColor : Colors.grey,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
+// class CustomBottomNavBar extends StatelessWidget {
+//   final int selectedIndex;
+//   final Function(int) onItemSelected;
+//
+//   const CustomBottomNavBar({
+//     super.key,
+//     required this.selectedIndex,
+//     required this.onItemSelected,
+//   });
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return SafeArea(
+//       child: Container(
+//         height: 80,
+//         margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+//         decoration: BoxDecoration(
+//           color: Colors.white,
+//           borderRadius: BorderRadius.circular(40),
+//           boxShadow: [
+//             BoxShadow(
+//               color: Colors.black.withValues(alpha: 0.08),
+//               blurRadius: 20,
+//               offset: const Offset(0, 4),
+//             ),
+//           ],
+//         ),
+//         child: Row(
+//           mainAxisAlignment: MainAxisAlignment.spaceAround,
+//           children: [
+//             _buildNavItem(0, Icons.auto_awesome_mosaic_outlined, 'LOOM'),
+//             _buildNavItem(1, Icons.book_outlined, 'LIBRARY'),
+//             _buildNavItem(2, Icons.bar_chart_outlined, 'PROGRESS'),
+//             _buildNavItem(3, Icons.person_pin_outlined, 'PORTAL'),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+//
+//   Widget _buildNavItem(int index, IconData icon, String label) {
+//     final bool isSelected = selectedIndex == index;
+//     final Color activeColor = const Color(0xFF705D00);
+//
+//     return InkWell(
+//       onTap: () => onItemSelected(index),
+//       borderRadius: BorderRadius.circular(40),
+//       child: Padding(
+//         padding: const EdgeInsets.symmetric(horizontal: 8),
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: [
+//             AnimatedContainer(
+//               duration: const Duration(milliseconds: 200),
+//               padding: EdgeInsets.all(isSelected ? 8 : 0),
+//               decoration: BoxDecoration(
+//                 color: isSelected ? activeColor : Colors.transparent,
+//                 shape: BoxShape.circle,
+//               ),
+//               child: Icon(
+//                 icon,
+//                 color: isSelected ? Colors.white : Colors.grey,
+//                 size: 24,
+//               ),
+//             ),
+//             const SizedBox(height: 4),
+//             Text(
+//               label,
+//               style: GoogleFonts.plusJakartaSans(
+//                 fontSize: 8,
+//                 fontWeight: FontWeight.w900,
+//                 color: isSelected ? activeColor : Colors.grey,
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }

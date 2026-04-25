@@ -2,8 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:linguafrica/screens/login_page.dart';
-import 'package:linguafrica/screens/signup_page.dart';
+import 'package:linguafrica/screens/Auth/login_page.dart';
+import 'package:linguafrica/screens/Auth/signup_page.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});

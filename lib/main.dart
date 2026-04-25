@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:linguafrica/screens/OnboBoardingScreen.dart';
-import 'package:linguafrica/screens/forgetPassword_page.dart';
-import 'package:linguafrica/screens/login_page.dart';
-import 'package:linguafrica/screens/parents_potal.dart';
-import 'package:linguafrica/screens/signup_page.dart';
+import 'package:linguafrica/screens/App%20Settings/app_setting_screen.dart';
+import 'package:linguafrica/screens/Auth/OnboBoardingScreen.dart';
+import 'package:linguafrica/screens/Kids/Kids_onboarding.dart';
+import 'package:linguafrica/screens/Kids/kids_home_map.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,6 +16,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return MaterialApp(
+      routes: {
+        '/settings' :(context) => const AppSettingScreen(),
+
+      },
         theme : ThemeData(
           textTheme: TextTheme(
             // Font for headers
@@ -27,7 +30,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
 debugShowCheckedModeBanner: false,
-      home: ParentsPortal()
+      home: OnBoardingScreen()
     );
   }
 }

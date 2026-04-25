@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:linguafrica/screens/forgetPassword_page.dart';
-import 'package:linguafrica/screens/signup_page.dart';
+import 'package:linguafrica/screens/Auth/forgetPassword_page.dart';
+import 'package:linguafrica/screens/Auth/signup_page.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -386,7 +386,7 @@ class LoginPage extends StatelessWidget {
                 'Apple',
                 style: TextStyle(
                   fontSize: 20,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w400,
                   color: Colors.black,
                   fontFamily: "PlusJakartaSans",
                 ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:linguafrica/screens/Adults/Adult_Dashboard.dart';
+import 'package:linguafrica/screens/Kids/Kids_onboarding.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
@@ -270,7 +271,19 @@ class _SignupPageState extends State<SignupPage> {
         ],
       ),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          if (selectedRole == 'Child') {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const KidsOnboarding()),
+            );
+          } else {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const AdultDashboard()),
+            );
+          }
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.transparent,
           shadowColor: Colors.transparent,
